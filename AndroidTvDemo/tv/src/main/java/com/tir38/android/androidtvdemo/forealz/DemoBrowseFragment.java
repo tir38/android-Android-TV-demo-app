@@ -7,13 +7,23 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ListRow;
 import android.support.v17.leanback.widget.ListRowPresenter;
+import android.support.v17.leanback.widget.OnItemViewClickedListener;
+import android.support.v17.leanback.widget.OnItemViewSelectedListener;
+import android.support.v17.leanback.widget.Presenter;
+import android.support.v17.leanback.widget.Row;
+import android.support.v17.leanback.widget.RowPresenter;
+import android.util.Log;
 
 import com.tir38.android.androidtvdemo.R;
+import com.tir38.android.androidtvdemo.forealz.model.ModelStore;
+import com.tir38.android.androidtvdemo.forealz.model.Topic;
+import com.tir38.android.androidtvdemo.forealz.view.MyPresenter;
 
 import java.util.List;
 
 public class DemoBrowseFragment extends BrowseFragment {
 
+    private static final String TAG = "DemoBrowseFragment";
 
     public static Fragment newInstance() {
         return new DemoBrowseFragment();
@@ -22,24 +32,44 @@ public class DemoBrowseFragment extends BrowseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         setupUI();
 
         setupData();
+
+        setupEventListeners();
+    }
+
+    private void setupEventListeners() {
+        // setup CLICK listener
+        setOnItemViewClickedListener(new OnItemViewClickedListener() {
+            @Override
+            public void onItemClicked(Presenter.ViewHolder viewHolder, Object o, RowPresenter.ViewHolder viewHolder2, Row row) {
+                Log.d(TAG, "item CLICKED");
+            }
+        });
+
+        // setup SELECTED listener
+        setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
+            @Override
+            public void onItemSelected(Presenter.ViewHolder viewHolder, Object o, RowPresenter.ViewHolder viewHolder2, Row row) {
+                Log.d(TAG, "item SELECTED");
+            }
+        });
     }
 
     private void setupData() {
-
         // get data from model store
         List<String> categories = ModelStore.getModelStore().getCategories();
 
-        CardPresenter cardPresenter = new CardPresenter();
+        MyPresenter topicPresenter = new MyPresenter();
 
         // create adapter, supply view (presenter) and data (categories)
         ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
-        List<String> topics;
+        List<Topic> topics;
 
         // build ListRow for each category
-        for (int i = 0; i < categories.size(); i++){
+        for (int i = 0; i < categories.size(); i++) {
 
             // get topics from ModelStore
             topics = ModelStore.getModelStore().getTopicsByCategory(i);
@@ -48,21 +78,20 @@ public class DemoBrowseFragment extends BrowseFragment {
                 break;
             }
 
-            // NOTE: its interesting here that you pass an instance of your "view" to the Adapter
-            ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(cardPresenter);
+            // NOTE: its interesting here that you pass an instance of your "view" to the Adapter constructor
+            ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(topicPresenter);
 
             // provide backing data to adapter
-            for (String topic: topics) {
-                listRowAdapter.add(topic);
+            for (Topic topic : topics) {
+               listRowAdapter.add(topic);
             }
 
             // build list row header
             HeaderItem headerItem = new HeaderItem(i, categories.get(i), null); // title but no image
 
+            // add a row to the adapter
             rowsAdapter.add(new ListRow(headerItem, listRowAdapter));
         }
-
-//        rowsAdapter.addAll(0, categories);
         setAdapter(rowsAdapter);
     }
 

@@ -1,4 +1,4 @@
-package com.tir38.android.androidtvdemo.forealz;
+package com.tir38.android.androidtvdemo.forealz.model;
 
 
 import android.util.Log;
@@ -18,7 +18,7 @@ public class ModelStore {
     private static ModelStore sModelStore;
 
     private List<String> mCategories = new ArrayList<String>();
-    private List<List<String>> mTopics = new ArrayList<List<String>>();
+    private List<List<Topic>> mTopics = new ArrayList<List<Topic>>();
 
     public ModelStore() {
         // setup categories
@@ -28,11 +28,11 @@ public class ModelStore {
 
 
         // setup topics
-        String[] category1Topics = {"topic 1", "topic 2"};
-        String[] category2Topics = {"topic 3", "topic 4"};
+        Topic[] category1Topics = {new Topic("topic 1"), new Topic("topic 2")};
+        Topic[] category2Topics = {new Topic ("topic 3"), new Topic("topic 4")};
 
-        mTopics.add(new ArrayList<String>(Arrays.asList(category1Topics)));
-        mTopics.add(new ArrayList<String>(Arrays.asList(category2Topics)));
+        mTopics.add(new ArrayList<Topic>(Arrays.asList(category1Topics)));
+        mTopics.add(new ArrayList<Topic>(Arrays.asList(category2Topics)));
     }
 
     public static ModelStore getModelStore() {
@@ -47,7 +47,7 @@ public class ModelStore {
         return mCategories;
     }
 
-    public List<String> getTopicsByCategory(int categoryIndex) {
+    public List<Topic> getTopicsByCategory(int categoryIndex) {
         // make sure category index has topics
         if (categoryIndex >= mTopics.size()) {
             Log.e(TAG, "Attempting to access Category index that doesn't have any topics.");

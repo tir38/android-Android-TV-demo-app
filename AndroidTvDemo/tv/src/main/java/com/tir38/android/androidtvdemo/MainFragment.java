@@ -18,7 +18,6 @@ import android.support.v17.leanback.widget.Row;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -123,19 +122,20 @@ public class MainFragment extends BrowseFragment {
     private void setupEventListeners() {
         setOnItemSelectedListener(getDefaultItemSelectedListener());
         setOnItemClickedListener(getDefaultItemClickedListener());
-        setOnSearchClickedListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
-                        .show();
-            }
-        });
+//        setOnSearchClickedListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getActivity(), "Implement your own in-app search", Toast.LENGTH_LONG)
+//                        .show();
+//            }
+//        });
     }
 
     protected OnItemSelectedListener getDefaultItemSelectedListener() {
         return new OnItemSelectedListener() {
             @Override
             public void onItemSelected(Object item, Row row) {
+                Log.d(TAG, "item selected");
                 if (item instanceof Movie) {
                     mBackgroundURI = ((Movie) item).getBackgroundImageURI();
                     startBackgroundTimer();
@@ -148,6 +148,7 @@ public class MainFragment extends BrowseFragment {
         return new OnItemClickedListener() {
             @Override
             public void onItemClicked(Object item, Row row) {
+                Log.d(TAG, "item clicked");
                 if (item instanceof Movie) {
                     Movie movie = (Movie) item;
                     Log.d(TAG, "Item: " + item.toString());

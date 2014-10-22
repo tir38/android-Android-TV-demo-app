@@ -1,8 +1,8 @@
-package com.tir38.android.androidtvdemo.forealz;
+package com.tir38.android.androidtvdemo.forealz.view;
 
 import android.support.v17.leanback.widget.AbstractDetailsDescriptionPresenter;
 
-public class CardPresenter extends AbstractDetailsDescriptionPresenter {
+public class TopicDetailDescriptionPresenter extends AbstractDetailsDescriptionPresenter {
     @Override
     protected void onBindDescription(ViewHolder viewHolder, Object o) {
         String title = (String) o;
