@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+import com.tir38.android.androidtvdemo.forealz.TopicDetailActivity;
 
 import java.io.IOException;
 import java.net.URI;
@@ -65,7 +66,6 @@ public class VideoDetailsFragment extends DetailsFragment {
 
         setOnItemClickedListener(getDefaultItemClickedListener());
         updateBackground(selectedMovie.getBackgroundImageURI());
-
     }
 
     private class DetailRowBuilderTask extends AsyncTask<Movie, Integer, DetailsOverviewRow> {
@@ -98,7 +98,7 @@ public class VideoDetailsFragment extends DetailsFragment {
         protected void onPostExecute(DetailsOverviewRow detailRow) {
             ClassPresenterSelector ps = new ClassPresenterSelector();
             DetailsOverviewRowPresenter dorPresenter =
-                    new DetailsOverviewRowPresenter(new DetailsDescriptionPresenter());
+                    new DetailsOverviewRowPresenter(new DetailsDescriptionPresenter(getActivity()));
             // set detail background and style
             dorPresenter.setBackgroundColor(getResources().getColor(android.R.color.holo_orange_light));
             dorPresenter.setStyleLarge(true);
@@ -132,7 +132,7 @@ public class VideoDetailsFragment extends DetailsFragment {
             public void onItemClicked(Object item, Row row) {
                 if (item instanceof Movie) {
                     Movie movie = (Movie) item;
-                    Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                    Intent intent = new Intent(getActivity(), TopicDetailActivity.class);
                     intent.putExtra(MOVIE, movie);
                     startActivity(intent);
                 }

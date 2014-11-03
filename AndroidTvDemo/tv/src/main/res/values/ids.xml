@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="topic_card_scaling_factor" type="id">500dp</item>
+</resources>

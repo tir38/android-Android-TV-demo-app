@@ -20,6 +20,8 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import com.tir38.android.androidtvdemo.forealz.TopicDetailActivity;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -234,7 +236,7 @@ public class PlayerActivity extends Activity {
             mHandler.post(new Runnable() {
                 @Override
                 public void run() {
-                    Intent intent = new Intent(PlayerActivity.this, DetailsActivity.class);
+                    Intent intent = new Intent(PlayerActivity.this, TopicDetailActivity.class);
                     intent.putExtra(getResources().getString(R.string.movie), mSelectedMovie);
                     startActivity(intent);
                 }

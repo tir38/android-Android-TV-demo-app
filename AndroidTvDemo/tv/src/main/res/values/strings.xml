@@ -36,5 +36,8 @@
     <string name="video_error_unknown_error">Failed to load video</string>
     <string name="oops">Oops</string>
     <string name="android_tv_is_awesome">Android TV is Awesome!</string>
+    <string name="available_devices_description">Currently the only device to run AndroidTV is the Nexus Player</string>
+    <string name="todo">TODO</string>
+    <string name="home_screen_description">- Recommendations\n- Apps\n- Games\n- Settings</string>
 
 </resources>

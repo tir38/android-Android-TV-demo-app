@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+import com.tir38.android.androidtvdemo.forealz.TopicDetailActivity;
 
 import java.net.URI;
 import java.util.Collections;
@@ -152,7 +153,7 @@ public class MainFragment extends BrowseFragment {
                 if (item instanceof Movie) {
                     Movie movie = (Movie) item;
                     Log.d(TAG, "Item: " + item.toString());
-                    Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                    Intent intent = new Intent(getActivity(), TopicDetailActivity.class);
                     intent.putExtra(getString(R.string.movie), movie);
                     startActivity(intent);
                 }
