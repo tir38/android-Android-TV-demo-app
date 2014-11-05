@@ -2,6 +2,9 @@ package com.tir38.android.androidtvdemo.forealz;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v17.leanback.app.DetailsFragment;
 import android.support.v17.leanback.widget.Action;
@@ -16,7 +19,10 @@ import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
 import android.util.Log;
 
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 import com.tir38.android.androidtvdemo.DetailsDescriptionPresenter;
+import com.tir38.android.androidtvdemo.R;
 import com.tir38.android.androidtvdemo.forealz.model.ModelStore;
 import com.tir38.android.androidtvdemo.forealz.model.Topic;
 
@@ -27,9 +33,11 @@ public class TopicDetailFragment extends DetailsFragment {
     private static final String EXTRA_TOPIC_ID = "TopicDetailFragment.EXTRA_TOPIC_ID";
     private static final String TAG = TopicDetailFragment.class.toString();
     private Topic mTopic;
+    private DetailsOverviewRow mRow;
 
     public static Fragment newInstance(int topicId) {
 
+        // add topic ID to fragment arguments
         Bundle args = new Bundle();
         args.putInt(EXTRA_TOPIC_ID, topicId);
         TopicDetailFragment fragment = new TopicDetailFragment();
@@ -41,10 +49,11 @@ public class TopicDetailFragment extends DetailsFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        // get topic from model store
         int topicId = getArguments().getInt(EXTRA_TOPIC_ID, 0);
         mTopic = ModelStore.getModelStore().getTopicById(topicId);
         if (mTopic == null) {
-            Log.e(TAG, "unknown topic; finishing fragment");
+            Log.e(TAG, "No topic found");
         }
 
         setupEventListeners();
@@ -68,16 +77,15 @@ public class TopicDetailFragment extends DetailsFragment {
         });
     }
 
-
     private void setupUI() {
-        DetailsOverviewRow row = new DetailsOverviewRow(mTopic);
-        row.setImageDrawable(getResources().getDrawable(mTopic.getImageResId()));
 
+        // create single Row
+        mRow = new DetailsOverviewRow(mTopic);
 
+        // setup action(s)
         List<Action> actions = mTopic.getActions();
         for (Action action : actions) {
-
-            row.addAction(action);
+            mRow.addAction(action);
         }
 
         // build presenter
@@ -94,11 +102,41 @@ public class TopicDetailFragment extends DetailsFragment {
             }
         });
 
-
         // build adapter
         ArrayObjectAdapter adapter = new ArrayObjectAdapter(dorPresenter);
-        adapter.add(row);
+        adapter.add(mRow);
         setAdapter(adapter);
+
+        Uri uri = Uri.parse(ModelStore.BASE_IMAGE_RESOURCE_URL + mTopic.getImageUrl());
+        Picasso.with(getActivity())
+                .load(uri)
+                .placeholder(R.drawable.brian_up_close)
+                .error(R.drawable.brian_up_close)
+                .into(new TopicImageTarget());
+    }
+
+    /**
+     * custom Picasso Target
+     */
+    protected class TopicImageTarget implements Target {
+
+        @Override
+        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+            Log.d(TAG, "bitmap loaded");
+            mRow.setImageBitmap(getActivity(), bitmap);
+        }
+
+        @Override
+        public void onBitmapFailed(Drawable errorDrawable) {
+            Log.d(TAG, "bitmap failed");
+            mRow.setImageDrawable(errorDrawable);
+        }
+
+        @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {
+            Log.d(TAG, "bitmap prepared");
+            mRow.setImageDrawable(placeHolderDrawable);
+        }
     }
 }
 

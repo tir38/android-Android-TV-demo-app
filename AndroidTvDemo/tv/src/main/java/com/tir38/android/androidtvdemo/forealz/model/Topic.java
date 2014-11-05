@@ -10,18 +10,17 @@ public class Topic {
 
     private String mTitle;
     private int mId;
-    private int mImageResId;
-    private final int mDescriptionResId;
+    private int mDescriptionResId;
+    private String mImageUrl;
     private List<Action> mActions;
     private URL mUrl;
 
     // public Action keys
     public static final long ACTION_LAUNCH_WEB = 12434245;
 
-    public Topic(String title, int id, int imageResId, int descriptionResId) {
+    public Topic(String title, int id, int descriptionResId) {
         mTitle = title;
         mId = id;
-        mImageResId = imageResId;
         mDescriptionResId = descriptionResId;
     }
 
@@ -33,16 +32,12 @@ public class Topic {
         return mId;
     }
 
-    public int getImageResId() {
-        return mImageResId;
-    }
-
     public int getDescriptionResId() {
         return mDescriptionResId;
     }
 
     public List<Action> getActions() {
-        if (mActions == null)  {
+        if (mActions == null) {
             return new ArrayList<Action>();
         }
         return mActions;
@@ -58,5 +53,13 @@ public class Topic {
 
     public void setUrl(URL url) {
         mUrl = url;
+    }
+
+    public String getImageUrl() {
+        return mImageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        mImageUrl = imageUrl;
     }
 }

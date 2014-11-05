@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.tir38.android.androidtvdemo.R;
 import com.tir38.android.androidtvdemo.forealz.model.ModelStore;
 import com.tir38.android.androidtvdemo.forealz.model.Topic;
-import com.tir38.android.androidtvdemo.forealz.view.MyTopicPresenter;
+import com.tir38.android.androidtvdemo.forealz.view.BrowseTopicPresenter;
 
 import java.util.List;
 
@@ -71,7 +71,7 @@ public class MyBrowseFragment extends BrowseFragment {
         // get data from model store
         List<String> categories = ModelStore.getModelStore().getCategories();
 
-        MyTopicPresenter topicPresenter = new MyTopicPresenter();
+        BrowseTopicPresenter topicPresenter = new BrowseTopicPresenter();
 
         // create adapter, supply view (presenter) and data (categories)
         ArrayObjectAdapter rowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
@@ -87,7 +87,7 @@ public class MyBrowseFragment extends BrowseFragment {
                 break;
             }
 
-            // NOTE: its interesting here that you pass an instance of your "view" to the Adapter constructor
+            // Remember, you only instantiate one instance of your Presenter
             ArrayObjectAdapter listRowAdapter = new ArrayObjectAdapter(topicPresenter);
 
             // provide backing data to adapter

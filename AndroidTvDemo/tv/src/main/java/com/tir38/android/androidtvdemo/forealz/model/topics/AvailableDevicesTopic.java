@@ -15,8 +15,10 @@ public class AvailableDevicesTopic extends Topic {
     public AvailableDevicesTopic() {
         super("Available Devices",
                 1,
-                R.drawable.nexus_player,
                 R.string.available_devices_description);
+
+
+        setImageUrl("nexus_player.jpg");
 
         // setup actions
         try {

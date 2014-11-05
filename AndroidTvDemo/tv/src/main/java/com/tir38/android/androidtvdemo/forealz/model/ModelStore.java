@@ -19,6 +19,7 @@ import java.util.List;
 public class ModelStore {
 
     private static final String TAG = "ModelStore";
+    public static final String BASE_IMAGE_RESOURCE_URL = "https://raw.githubusercontent.com/tir38/Android-TV-demo-app/master/AndroidTvDemo/tv/src/main/res/drawable/";
 
     private static ModelStore sModelStore;
 
@@ -34,17 +35,19 @@ public class ModelStore {
         mCategories.add("General dev stuff");
         mCategories.add("Details Details Details!");
 
+        // TODO: make the rest of these topics their own objects
+
         // setup topics
         Topic[] category1Topics = {new AvailableDevicesTopic(),
                 new GameControllerTopic(),
-                new Topic("Remote Control", 4, R.drawable.nexus_remote, R.string.todo),
-                new Topic("Remote Control Android App", 5, R.drawable.remote_app, R.string.todo),
-                new Topic("Home Screen", 3, R.drawable.home_screen, R.string.home_screen_description)};
+                new Topic("Remote Control", 4, R.string.todo),
+                new Topic("Remote Control Android App", 5, R.string.todo),
+                new Topic("Home Screen", 3, R.string.home_screen_description)};
 
         Topic[] category2Topics = {new GoogleDocsTopic(),
-                new Topic("Google TV vs. AndroidTV", 44, R.drawable.brian_up_close, R.string.todo)};
+                new Topic("Google TV vs. AndroidTV", 44, R.string.todo)};
 
-        Topic[] category3Topics = {new Topic("Adapter + View pattern", 555, R.drawable.brian_up_close, R.string.todo)};
+        Topic[] category3Topics = {new Topic("Adapter + View pattern", 555, R.string.todo)};
 
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category1Topics)));
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category2Topics)));
