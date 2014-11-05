@@ -3,7 +3,6 @@ package com.tir38.android.androidtvdemo.forealz.model;
 
 import android.util.Log;
 
-import com.tir38.android.androidtvdemo.R;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AvailableDevicesTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GameControllerTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleDocsTopic;
@@ -39,8 +38,6 @@ public class ModelStore {
         mCategories.add("General dev stuff");
         mCategories.add("Details Details Details!");
 
-        // TODO: make the rest of these topics their own objects
-
         // setup topics
         Topic[] category1Topics = {new AvailableDevicesTopic(),
                 new GameControllerTopic(),
@@ -51,7 +48,7 @@ public class ModelStore {
         Topic[] category2Topics = {new GoogleDocsTopic(),
                 new GoogleTvTopic()};
 
-        Topic[] category3Topics = {new Topic("Adapter + View pattern", 555, R.string.todo)};
+        Topic[] category3Topics = {};
 
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category1Topics)));
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category2Topics)));
