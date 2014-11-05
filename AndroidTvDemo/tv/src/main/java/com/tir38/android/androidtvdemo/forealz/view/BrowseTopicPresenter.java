@@ -36,7 +36,7 @@ public class BrowseTopicPresenter extends Presenter {
         // set params on imageCardView
         imageCardView.setFocusable(true);
         imageCardView.setFocusableInTouchMode(true);
-        imageCardView.setBackgroundColor(sContext.getResources().getColor(android.R.color.holo_blue_bright));
+        imageCardView.setBackgroundColor(sContext.getResources().getColor(android.R.color.white));
 
         // create new ViewHolder, passing in view
         return new BrowseTopicPresenterViewHolder(imageCardView);
@@ -67,7 +67,7 @@ public class BrowseTopicPresenter extends Presenter {
     }
 
     /**
-     * THIS GUY HOLDS ONTO  VIEW-RELATED OBJECTS.
+     * THIS GUY HOLDS ONTO VIEW-RELATED OBJECTS.
      * DO NOT PUT YOUR MODEL HERE!
      * TODO: WELL MAYBE....FIGURE OUT WHAT THE LIFECYCLE OF THIS GUY IS.
      */

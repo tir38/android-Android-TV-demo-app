@@ -2,6 +2,7 @@ package com.tir38.android.androidtvdemo.forealz.model;
 
 import android.support.v17.leanback.widget.Action;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class Topic {
     private int mDescriptionResId;
     private String mImageUrl;
     private List<Action> mActions;
-    private URL mUrl;
+    private String mUrl;
 
     // public Action keys
     public static final long ACTION_LAUNCH_WEB = 12434245;
@@ -48,10 +49,16 @@ public class Topic {
     }
 
     public URL getUrl() {
-        return mUrl;
+        // convert string url into URL
+        try {
+            return new URL(mUrl);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public void setUrl(URL url) {
+    public void setUrl(String url) {
         mUrl = url;
     }
 

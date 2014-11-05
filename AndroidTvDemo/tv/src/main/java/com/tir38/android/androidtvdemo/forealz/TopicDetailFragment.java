@@ -12,11 +12,6 @@ import android.support.v17.leanback.widget.ArrayObjectAdapter;
 import android.support.v17.leanback.widget.DetailsOverviewRow;
 import android.support.v17.leanback.widget.DetailsOverviewRowPresenter;
 import android.support.v17.leanback.widget.OnActionClickedListener;
-import android.support.v17.leanback.widget.OnItemViewClickedListener;
-import android.support.v17.leanback.widget.OnItemViewSelectedListener;
-import android.support.v17.leanback.widget.Presenter;
-import android.support.v17.leanback.widget.Row;
-import android.support.v17.leanback.widget.RowPresenter;
 import android.util.Log;
 
 import com.squareup.picasso.Picasso;
@@ -34,10 +29,10 @@ public class TopicDetailFragment extends DetailsFragment {
     private static final String TAG = TopicDetailFragment.class.toString();
     private Topic mTopic;
     private DetailsOverviewRow mRow;
+    private ArrayObjectAdapter mAdapter;
+    private TopicImageTarget mTarget;
 
     public static Fragment newInstance(int topicId) {
-
-        // add topic ID to fragment arguments
         Bundle args = new Bundle();
         args.putInt(EXTRA_TOPIC_ID, topicId);
         TopicDetailFragment fragment = new TopicDetailFragment();
@@ -56,25 +51,7 @@ public class TopicDetailFragment extends DetailsFragment {
             Log.e(TAG, "No topic found");
         }
 
-        setupEventListeners();
-
         setupUI();
-    }
-
-    private void setupEventListeners() {
-        setOnItemViewClickedListener(new OnItemViewClickedListener() {
-            @Override
-            public void onItemClicked(Presenter.ViewHolder viewHolder, Object o, RowPresenter.ViewHolder viewHolder2, Row row) {
-                // TODO
-            }
-        });
-
-        setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
-            @Override
-            public void onItemSelected(Presenter.ViewHolder viewHolder, Object o, RowPresenter.ViewHolder viewHolder2, Row row) {
-                // TODO
-            }
-        });
     }
 
     private void setupUI() {
@@ -103,16 +80,18 @@ public class TopicDetailFragment extends DetailsFragment {
         });
 
         // build adapter
-        ArrayObjectAdapter adapter = new ArrayObjectAdapter(dorPresenter);
-        adapter.add(mRow);
-        setAdapter(adapter);
+        mAdapter = new ArrayObjectAdapter(dorPresenter);
+        mAdapter.add(mRow);
+        setAdapter(mAdapter);
+
+        mTarget = new TopicImageTarget();
 
         Uri uri = Uri.parse(ModelStore.BASE_IMAGE_RESOURCE_URL + mTopic.getImageUrl());
         Picasso.with(getActivity())
                 .load(uri)
                 .placeholder(R.drawable.brian_up_close)
                 .error(R.drawable.brian_up_close)
-                .into(new TopicImageTarget());
+                .into(mTarget);
     }
 
     /**
@@ -124,18 +103,21 @@ public class TopicDetailFragment extends DetailsFragment {
         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
             Log.d(TAG, "bitmap loaded");
             mRow.setImageBitmap(getActivity(), bitmap);
+            mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
 
         @Override
         public void onBitmapFailed(Drawable errorDrawable) {
             Log.d(TAG, "bitmap failed");
             mRow.setImageDrawable(errorDrawable);
+            mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
 
         @Override
         public void onPrepareLoad(Drawable placeHolderDrawable) {
             Log.d(TAG, "bitmap prepared");
             mRow.setImageDrawable(placeHolderDrawable);
+            mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
     }
 }

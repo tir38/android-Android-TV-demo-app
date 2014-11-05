@@ -35,9 +35,14 @@
     <string name="video_error_server_unaccessible">Media server was not reachable</string>
     <string name="video_error_unknown_error">Failed to load video</string>
     <string name="oops">Oops</string>
+
+
     <string name="android_tv_is_awesome">Android TV is Awesome!</string>
     <string name="available_devices_description">Currently the only device to run AndroidTV is the Nexus Player</string>
     <string name="todo">TODO</string>
     <string name="home_screen_description">- Recommendations\n- Apps\n- Games\n- Settings</string>
-
+    <string name="game_controller_description">Video game style D-pad</string>
+    <string name="remote_control_description">Simple TV-style remote; with voice search hardware</string>
+    <string name="remote_android_app_description">Android app that interfaces AndroidTV over wifi</string>
+    <string name="a_word_from_google_description">The docs are currently hit-or-miss. The high level style and design guidelines are great, but the source and javadocs on some methods are missing.</string>
 </resources>

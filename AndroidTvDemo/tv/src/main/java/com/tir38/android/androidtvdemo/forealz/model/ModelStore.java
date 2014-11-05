@@ -7,6 +7,10 @@ import com.tir38.android.androidtvdemo.R;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AvailableDevicesTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GameControllerTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleDocsTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleTvTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.HomeScreenTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteAndroidAppTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteControlTopic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,12 +44,12 @@ public class ModelStore {
         // setup topics
         Topic[] category1Topics = {new AvailableDevicesTopic(),
                 new GameControllerTopic(),
-                new Topic("Remote Control", 4, R.string.todo),
-                new Topic("Remote Control Android App", 5, R.string.todo),
-                new Topic("Home Screen", 3, R.string.home_screen_description)};
+                new RemoteControlTopic(),
+                new RemoteAndroidAppTopic(),
+                new HomeScreenTopic()};
 
         Topic[] category2Topics = {new GoogleDocsTopic(),
-                new Topic("Google TV vs. AndroidTV", 44, R.string.todo)};
+                new GoogleTvTopic()};
 
         Topic[] category3Topics = {new Topic("Adapter + View pattern", 555, R.string.todo)};
 
