@@ -8,21 +8,17 @@ import com.tir38.android.androidtvdemo.forealz.model.Topic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoogleDocsTopic extends Topic {
+public class AndroidStudioTemplateTopic extends Topic {
 
-    public GoogleDocsTopic() {
-        super("A Word From Google",
-                GoogleDocsTopic.class.toString().hashCode(),
-                R.string.a_word_from_google_description);
-
-        setImageUrl("google.png");
-
-        setUrl("https://developer.android.com/distribute/essentials/quality/tv.html");
+    public AndroidStudioTemplateTopic() {
+        super("Android Studio: Android TV Template", 66, R.string.android_studio_temmplate_description);
+        setImageUrl("android_studio_icon.png");
+        setUrl("https://github.com/tir38/Android-TV-demo-app/tree/master/AndroidTvDemo/web_images/android_studio_template.png");
 
         // setup actions
         List<Action> actions = new ArrayList<Action>();
         Action action1 = new Action(ACTION_LAUNCH_WEB,
-                "Android Style Guide",
+                "Template",
                 null);
         actions.add(action1);
         setActions(actions);

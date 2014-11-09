@@ -105,6 +105,6 @@ public class MyBrowseFragment extends BrowseFragment {
     }
 
     private void setupUI() {
-        setTitle(getResources().getString(R.string.android_tv_is_awesome));
+        setTitle(getResources().getString(R.string.presentation_title));
     }
 }

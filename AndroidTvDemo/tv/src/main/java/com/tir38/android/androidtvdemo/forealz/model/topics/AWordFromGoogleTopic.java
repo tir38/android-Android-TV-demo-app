@@ -8,16 +8,21 @@ import com.tir38.android.androidtvdemo.forealz.model.Topic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoogleTvTopic extends Topic {
-    public GoogleTvTopic() {
-        super("Google TV vs. Android TV", 44, R.string.google_tv_description);
-        setImageUrl("google_tv.jpg");
-        setUrl("https://en.wikipedia.org/wiki/Google_TV");
+public class AWordFromGoogleTopic extends Topic {
+
+    public AWordFromGoogleTopic() {
+        super("A Word From Google",
+                AWordFromGoogleTopic.class.toString().hashCode(),
+                R.string.a_word_from_google_description);
+
+        setImageUrl("google.png");
+
+        setUrl("https://developer.android.com/design/tv/principles.html");
 
         // setup actions
         List<Action> actions = new ArrayList<Action>();
         Action action1 = new Action(ACTION_LAUNCH_WEB,
-                "Wikipedia",
+                "Creative Vision",
                 null);
         actions.add(action1);
         setActions(actions);

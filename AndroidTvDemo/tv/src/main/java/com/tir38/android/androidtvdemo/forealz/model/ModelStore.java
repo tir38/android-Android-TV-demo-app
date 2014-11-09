@@ -3,9 +3,11 @@ package com.tir38.android.androidtvdemo.forealz.model;
 
 import android.util.Log;
 
+import com.tir38.android.androidtvdemo.forealz.model.topics.AWordFromGoogleTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidApiVersionTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidStudioTemplateTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AvailableDevicesTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GameControllerTopic;
-import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleDocsTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleTvTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.HomeScreenTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteAndroidAppTopic;
@@ -45,8 +47,11 @@ public class ModelStore {
                 new RemoteAndroidAppTopic(),
                 new HomeScreenTopic()};
 
-        Topic[] category2Topics = {new GoogleDocsTopic(),
-                new GoogleTvTopic()};
+        Topic[] category2Topics = {new AWordFromGoogleTopic(),
+                new GoogleTvTopic(),
+                new AndroidApiVersionTopic(),
+                new AndroidStudioTemplateTopic()};
+
 
         Topic[] category3Topics = {};
 
