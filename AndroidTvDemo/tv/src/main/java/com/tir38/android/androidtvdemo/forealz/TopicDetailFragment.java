@@ -30,7 +30,6 @@ public class TopicDetailFragment extends DetailsFragment {
     private Topic mTopic;
     private DetailsOverviewRow mRow;
     private ArrayObjectAdapter mAdapter;
-    private TopicImageTarget mTarget;
 
     public static Fragment newInstance(int topicId) {
         Bundle args = new Bundle();
@@ -84,14 +83,14 @@ public class TopicDetailFragment extends DetailsFragment {
         mAdapter.add(mRow);
         setAdapter(mAdapter);
 
-        mTarget = new TopicImageTarget();
+        TopicImageTarget target = new TopicImageTarget();
 
         Uri uri = Uri.parse(ModelStore.BASE_IMAGE_RESOURCE_URL + mTopic.getImageUrl());
         Picasso.with(getActivity())
                 .load(uri)
                 .placeholder(R.drawable.brian_up_close)
-                .error(R.drawable.brian_up_close)
-                .into(mTarget);
+                .error(R.drawable.brian_up_close_error)
+                .into(target);
     }
 
     /**
@@ -101,21 +100,18 @@ public class TopicDetailFragment extends DetailsFragment {
 
         @Override
         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-            Log.d(TAG, "bitmap loaded");
             mRow.setImageBitmap(getActivity(), bitmap);
             mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
 
         @Override
         public void onBitmapFailed(Drawable errorDrawable) {
-            Log.d(TAG, "bitmap failed");
             mRow.setImageDrawable(errorDrawable);
             mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
 
         @Override
         public void onPrepareLoad(Drawable placeHolderDrawable) {
-            Log.d(TAG, "bitmap prepared");
             mRow.setImageDrawable(placeHolderDrawable);
             mAdapter.notifyArrayItemRangeChanged(0, 1);
         }

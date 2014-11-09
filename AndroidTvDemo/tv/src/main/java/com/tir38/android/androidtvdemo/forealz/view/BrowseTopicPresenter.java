@@ -92,7 +92,7 @@ public class BrowseTopicPresenter extends Presenter {
                     .resize(CARD_WIDTH, CARD_HEIGHT)
                     .centerInside()
                     .placeholder(R.drawable.brian_up_close)
-                    .error(R.drawable.brian_up_close)
+                    .error(R.drawable.brian_up_close_error)
                     .into(mTarget);
         }
     }
