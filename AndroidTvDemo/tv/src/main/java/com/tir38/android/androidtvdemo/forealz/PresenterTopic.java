@@ -9,5 +9,7 @@ public class PresenterTopic extends Topic {
         super("Presenter: a new class",
                 666,
                 R.string.presenter_description);
+
+        setImageUrl("green.jpg");
     }
 }

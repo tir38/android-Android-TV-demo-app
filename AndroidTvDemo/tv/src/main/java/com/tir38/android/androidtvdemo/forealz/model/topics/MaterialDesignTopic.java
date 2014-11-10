@@ -9,6 +9,8 @@ public class MaterialDesignTopic extends Topic {
                 2222,
                 R.string.material_design_description);
 
+        setImageUrl("material.png");
+
         setBackgroundImageUrl("https://material-design.storage.googleapis.com/publish/v_1/quantumexternal/0Bx4BSt6jniD7SjE5bTNHN3JpQXc/style_color_introduction.png");
     }
 }

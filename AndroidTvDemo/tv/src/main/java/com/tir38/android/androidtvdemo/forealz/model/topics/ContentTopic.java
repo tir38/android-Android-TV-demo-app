@@ -8,7 +8,7 @@ public class ContentTopic extends Topic {
         super("Content is Everything",
                 3333,
                 R.string.content_description);
-        setImageUrl("blue.jpg");
+        setImageUrl("content.jpg");
         setBackgroundImageUrl("http://www.bookaliciousmama.com/wp-content/uploads/2014/02/Piles-of-books-in-a-private-college-library_www.LuxuryWallpapers.net_.jpg");
     }
 }

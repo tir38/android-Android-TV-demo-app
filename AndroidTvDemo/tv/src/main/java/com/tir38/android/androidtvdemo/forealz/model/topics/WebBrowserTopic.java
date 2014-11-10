@@ -15,6 +15,8 @@ public class WebBrowserTopic extends Topic {
                 1111,
                 R.string.webbrowser_description);
 
+        setImageUrl("no_chrome.jpg");
+
         setUrl("http://developer.android.com/reference/android/webkit/WebView.html");
 
         // setup actions
