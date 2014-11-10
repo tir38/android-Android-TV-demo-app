@@ -7,5 +7,7 @@ public class ListenersTopic extends Topic {
 
     public ListenersTopic() {
         super("Two New Listeners", 444, R.string.listeners_description);
+
+        setImageUrl("yellow.jpg");
     }
 }

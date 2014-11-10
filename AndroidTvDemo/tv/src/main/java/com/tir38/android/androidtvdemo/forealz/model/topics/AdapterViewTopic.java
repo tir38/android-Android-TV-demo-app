@@ -9,5 +9,7 @@ public class AdapterViewTopic extends Topic {
         super("Adapter + View",
                 555,
                 R.string.adapter_view_description);
+
+        setImageUrl("light_blue.jpg");
     }
 }
