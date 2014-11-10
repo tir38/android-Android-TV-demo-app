@@ -17,6 +17,8 @@ public class WebBrowserTopic extends Topic {
 
         setImageUrl("no_chrome.jpg");
 
+        setBackgroundImageUrl("http://www.zeta.net/wp-content/uploads/2012/01/BG-Chrome1.jpg");
+
         setUrl("http://developer.android.com/reference/android/webkit/WebView.html");
 
         // setup actions
