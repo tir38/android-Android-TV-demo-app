@@ -141,7 +141,12 @@ public class TopicDetailFragment extends DetailsFragment {
             mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
 
-        // TODO add equals() and hashcode()
+        @Override
+        public boolean equals(Object o) {
+            return this == o || o != null && o instanceof TopicImageTarget;
+        }
+
+        // use Object's hashcode;
     }
 }
 
