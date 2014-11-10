@@ -89,7 +89,7 @@ public class TopicDetailFragment extends DetailsFragment {
         Picasso.with(getActivity())
                 .load(uri)
                 .placeholder(R.drawable.brian_up_close)
-                .error(R.drawable.brian_up_close_error)
+                .error(R.drawable.blank)
                 .into(target);
     }
 

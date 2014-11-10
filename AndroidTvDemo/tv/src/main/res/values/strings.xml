@@ -16,4 +16,11 @@
     <string name="google_tv_description">Google TV is not the same thing as Android TV. Google TV devices ran a customized version of Android (almost exclusively based on 3.2) Apps for Google TV are not available on Android TV</string>
     <string name="android_api_version_description">Android TV is running Android 5.0 Lollipop</string>
     <string name="android_studio_temmplate_description">Android Studio ships with an \'TV Activity\'. This adds a lot of boiler plate that is mostly useless to non-beginner developers.</string>
+    <string name="leanback_description">The v17 Leanback Library provides APIs specific to creating Android TV layouts. Specifically BrowseFragment, DetailsFragment, PlaybackOverlayFragment.</string>
+    <string name="two_axis_description">“As you design your app for TV, make sure your user interface has clear paths for two-axis navigation by aligning objects in lists and grids.”</string>
+    <string name="manifest_description"><![CDATA[<intent-filter>\n\t<action android:name=\"android.intent.action.MAIN\" />\n\t<category android:name=\n\t\t"android.intent.category.LEANBACK_LAUNCHER\"/>\n</intent-filter>]]></string>
+    <string name="manifest2_description"><![CDATA[<uses-feature\n\tandroid:name=\"android.hardware.touchscreen\"\n\tandroid:required=\"false\"\n/>]]></string>
+    <string name="new_fragments_description">The leanback library provides some new fragments, notably:\n- BrowseFragment\n- DetailsFragment\n- PlaybackOverlayFragment</string>
+    <string name="listeners_description">We have two new listeners:\n- OnItemViewSelectedListener\n- OnItemViewClickedListener\n each with a callback method</string>
+    <string name="adapter_view_description">We use a similar adapter + view pattern, like ListView + ArrayAdapter but with subtle differences.\n- ArrayObjectAdapter\n- Presenter`</string>
 </resources>

@@ -22,12 +22,17 @@ public class BrowseTopicPresenter extends Presenter {
     private static final String TAG = "MyPresenter";
     private static Context sContext;
 
+    private int numViewHoldersCreated = 0;
+    private int numViewHoldersBound = 0;
+
     public BrowseTopicPresenter() {
         Log.d(TAG, "instantiating " + BrowseTopicPresenter.class.toString());
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
+        numViewHoldersCreated++;
+        Log.d(TAG, "onCreateViewHolder; number of viewholder created = " + numViewHoldersCreated);
         sContext = parent.getContext();
 
         // instantiate view here
@@ -44,10 +49,14 @@ public class BrowseTopicPresenter extends Presenter {
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Object object) {
+        numViewHoldersBound++;
+        Log.d(TAG, "onBindViewHolder; number of viewholders currently bound = " + numViewHoldersBound);
         // here we are "binding" the view to the object
 
         // cast object to appropriate class
         Topic topic = (Topic) object;
+
+        Log.d(TAG, "binding for topic: " + topic.getId());
 
         // update ViewHolder
         BrowseTopicPresenterViewHolder browseTopicPresenterViewHolder = (BrowseTopicPresenterViewHolder) viewHolder;
@@ -60,10 +69,12 @@ public class BrowseTopicPresenter extends Presenter {
 
     @Override
     public void onUnbindViewHolder(ViewHolder viewHolder) {
+        numViewHoldersBound--;
+        // unbind anything; release memory heavy resources... bitmaps?
+
         // TODO: do i want to do this?
 //        MyViewHolder myViewHolder = (MyViewHolder) viewHolder;
 //        myViewHolder.mCardView = null;
-        // unbind anything; release memory heavy resources... bitmaps?
     }
 
     /**
@@ -92,7 +103,7 @@ public class BrowseTopicPresenter extends Presenter {
                     .resize(CARD_WIDTH, CARD_HEIGHT)
                     .centerInside()
                     .placeholder(R.drawable.brian_up_close)
-                    .error(R.drawable.brian_up_close_error)
+                    .error(R.drawable.blank)
                     .into(mTarget);
         }
     }

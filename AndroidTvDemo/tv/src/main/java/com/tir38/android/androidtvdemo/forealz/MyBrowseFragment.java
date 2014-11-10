@@ -13,7 +13,6 @@ import android.support.v17.leanback.widget.OnItemViewSelectedListener;
 import android.support.v17.leanback.widget.Presenter;
 import android.support.v17.leanback.widget.Row;
 import android.support.v17.leanback.widget.RowPresenter;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.tir38.android.androidtvdemo.R;
@@ -48,8 +47,7 @@ public class MyBrowseFragment extends BrowseFragment {
             @Override
             public void onItemClicked(Presenter.ViewHolder viewHolder, Object o, RowPresenter.ViewHolder viewHolder2, Row row) {
                 Topic topic = (Topic) o;
-                String message = "item Clicked: " + topic.getTitle();
-                Log.d(TAG, message);
+                String message = "item clicked: " + topic.getTitle();
                 Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(), TopicDetailActivity.class);
@@ -62,7 +60,7 @@ public class MyBrowseFragment extends BrowseFragment {
         setOnItemViewSelectedListener(new OnItemViewSelectedListener() {
             @Override
             public void onItemSelected(Presenter.ViewHolder viewHolder, Object o, RowPresenter.ViewHolder viewHolder2, Row row) {
-                Log.d(TAG, "item SELECTED");
+                // currently do nothing
             }
         });
     }

@@ -4,14 +4,21 @@ package com.tir38.android.androidtvdemo.forealz.model;
 import android.util.Log;
 
 import com.tir38.android.androidtvdemo.forealz.model.topics.AWordFromGoogleTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.AdapterViewTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidApiVersionTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidStudioTemplateTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AvailableDevicesTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GameControllerTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleTvTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.HomeScreenTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.LeanbackTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.ListenersTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.ManifestPt2Topic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.ManifestTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.NewFragmentsTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteAndroidAppTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteControlTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.TwoAxisNavTopic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,19 +48,28 @@ public class ModelStore {
         mCategories.add("Details Details Details!");
 
         // setup topics
-        Topic[] category1Topics = {new AvailableDevicesTopic(),
+        Topic[] category1Topics = {
+                new AvailableDevicesTopic(),
                 new GameControllerTopic(),
                 new RemoteControlTopic(),
                 new RemoteAndroidAppTopic(),
                 new HomeScreenTopic()};
 
-        Topic[] category2Topics = {new AWordFromGoogleTopic(),
+        Topic[] category2Topics = {
+                new AWordFromGoogleTopic(),
                 new GoogleTvTopic(),
                 new AndroidApiVersionTopic(),
-                new AndroidStudioTemplateTopic()};
+                new AndroidStudioTemplateTopic(),
+                new LeanbackTopic(),
+                new TwoAxisNavTopic()};
 
-
-        Topic[] category3Topics = {};
+        Topic[] category3Topics = {
+                new ManifestTopic(),
+                new ManifestPt2Topic(),
+                new NewFragmentsTopic(),
+                new ListenersTopic(),
+                new AdapterViewTopic()
+        };
 
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category1Topics)));
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category2Topics)));
