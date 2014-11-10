@@ -22,5 +22,6 @@
     <string name="manifest2_description"><![CDATA[<uses-feature\n\tandroid:name=\"android.hardware.touchscreen\"\n\tandroid:required=\"false\"\n/>]]></string>
     <string name="new_fragments_description">The leanback library provides some new fragments, notably:\n- BrowseFragment\n- DetailsFragment\n- PlaybackOverlayFragment</string>
     <string name="listeners_description">We have two new listeners:\n- OnItemViewSelectedListener\n- OnItemViewClickedListener\n each with a callback method</string>
-    <string name="adapter_view_description">We use a similar adapter + view pattern, like ListView + ArrayAdapter but with subtle differences.\n- ArrayObjectAdapter\n- Presenter`</string>
+    <string name="adapter_view_description">We use a similar adapter + view pattern, like ListView + ArrayAdapter but with subtle differences.\n- ArrayObjectAdapter\n- Presenter</string>
+    <string name="presenter_description">A Presenter is used to generate Views and bind Objects to them on demand. It is closely related to concept of an RecyclerView.Adapter, but is not position-based.</string>
 </resources>

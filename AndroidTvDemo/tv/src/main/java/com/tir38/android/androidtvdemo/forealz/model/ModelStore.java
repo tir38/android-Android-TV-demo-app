@@ -3,6 +3,7 @@ package com.tir38.android.androidtvdemo.forealz.model;
 
 import android.util.Log;
 
+import com.tir38.android.androidtvdemo.forealz.PresenterTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AWordFromGoogleTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AdapterViewTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidApiVersionTopic;
@@ -68,7 +69,8 @@ public class ModelStore {
                 new ManifestPt2Topic(),
                 new NewFragmentsTopic(),
                 new ListenersTopic(),
-                new AdapterViewTopic()
+                new AdapterViewTopic(),
+                new PresenterTopic()
         };
 
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category1Topics)));

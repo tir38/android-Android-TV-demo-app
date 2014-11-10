@@ -102,7 +102,7 @@ public class BrowseTopicPresenter extends Presenter {
                     .load(uri)
                     .resize(CARD_WIDTH, CARD_HEIGHT)
                     .centerInside()
-                    .placeholder(R.drawable.brian_up_close)
+                    .placeholder(R.drawable.blank)
                     .error(R.drawable.blank)
                     .into(mTarget);
         }

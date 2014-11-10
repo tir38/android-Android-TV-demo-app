@@ -81,6 +81,13 @@ public class TopicDetailFragment extends DetailsFragment {
         // build adapter
         mAdapter = new ArrayObjectAdapter(dorPresenter);
         mAdapter.add(mRow);
+
+        // for topic 555 add a few extra rows
+        if (mTopic.getId() == 555) {
+            mAdapter.add(mRow);
+            mAdapter.add(mRow);
+        }
+
         setAdapter(mAdapter);
 
         TopicImageTarget target = new TopicImageTarget();
@@ -88,7 +95,7 @@ public class TopicDetailFragment extends DetailsFragment {
         Uri uri = Uri.parse(ModelStore.BASE_IMAGE_RESOURCE_URL + mTopic.getImageUrl());
         Picasso.with(getActivity())
                 .load(uri)
-                .placeholder(R.drawable.brian_up_close)
+                .placeholder(R.drawable.blank)
                 .error(R.drawable.blank)
                 .into(target);
     }

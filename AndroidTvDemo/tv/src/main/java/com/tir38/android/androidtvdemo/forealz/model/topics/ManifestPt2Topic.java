@@ -9,5 +9,7 @@ public class ManifestPt2Topic extends Topic {
         super("AndroidManifest.xml",
                 222,
                 R.string.manifest2_description);
+
+        setImageUrl("blue.jpg");
     }
 }

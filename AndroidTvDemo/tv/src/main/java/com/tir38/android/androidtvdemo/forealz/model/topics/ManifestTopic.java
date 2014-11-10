@@ -9,5 +9,7 @@ public class ManifestTopic extends Topic {
         super("AndroidManifest.xml",
                 111,
                 R.string.manifest_description);
+
+        setImageUrl("green.jpg");
     }
 }

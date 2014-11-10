@@ -13,6 +13,8 @@ public class NewFragmentsTopic extends Topic {
     public NewFragmentsTopic() {
         super("New Fragments", 333, R.string.new_fragments_description);
 
+        setImageUrl("red.jpg");
+
         setUrl("https://developer.android.com/reference/android/support/v17/leanback/app/package-summary.html");
         // setup actions
         List<Action> actions = new ArrayList<Action>();
