@@ -15,6 +15,7 @@ public class Topic {
     private String mImageUrl;
     private List<Action> mActions;
     private String mUrl;
+    private String mBackgroundImageUrl;
 
     // public Action keys
     public static final long ACTION_LAUNCH_WEB = 12434245;
@@ -68,5 +69,13 @@ public class Topic {
 
     public void setImageUrl(String imageUrl) {
         mImageUrl = imageUrl;
+    }
+
+    public String getBackgroundImageUrl() {
+        return mBackgroundImageUrl;
+    }
+
+    public void setBackgroundImageUrl(String backgroundImageUrl) {
+        mBackgroundImageUrl = backgroundImageUrl;
     }
 }

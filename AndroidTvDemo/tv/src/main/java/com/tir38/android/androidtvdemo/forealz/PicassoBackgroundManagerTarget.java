@@ -1,4 +1,4 @@
-package com.tir38.android.androidtvdemo;
+package com.tir38.android.androidtvdemo.forealz;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -23,7 +23,7 @@ public class PicassoBackgroundManagerTarget implements Target {
 
     @Override
     public void onBitmapFailed(Drawable drawable) {
-        this.mBackgroundManager.setDrawable(drawable);
+        this.mBackgroundManager.setDrawable(null);
     }
 
     @Override

@@ -24,4 +24,9 @@
     <string name="listeners_description">We have two new listeners:\n- OnItemViewSelectedListener\n- OnItemViewClickedListener\n each with a callback method</string>
     <string name="adapter_view_description">We use a similar adapter + view pattern, like ListView + ArrayAdapter but with subtle differences.\n- ArrayObjectAdapter\n- Presenter</string>
     <string name="presenter_description">A Presenter is used to generate Views and bind Objects to them on demand. It is closely related to concept of an RecyclerView.Adapter, but is not position-based.</string>
+    <string name="presenter_caveat_description">IMO: The ViewHolder should not be holding onto the model (as in the demo examples). That\'s the Presenter’s job.</string>
+    <string name="webbrowser_description">Seriously, this thing doesn\' ship with Chrome!</string>
+    <string name="material_design_description">A lot of the Material design concepts are baked in to the provided fragments, but what more should we be considering?</string>
+    <string name="content_description">Content is everything! But that leaves Android TV in a weird area:\n- highly uniform content\n- highly non-uniform content\n- some middle ground?</string>
+    <string name="download_speed_description">This is still a TV. The experience should be fast! High quality is great but speed is great too!</string>
 </resources>

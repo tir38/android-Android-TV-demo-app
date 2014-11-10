@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v17.leanback.app.BackgroundManager;
 import android.support.v17.leanback.app.DetailsFragment;
 import android.support.v17.leanback.widget.Action;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
@@ -30,6 +31,7 @@ public class TopicDetailFragment extends DetailsFragment {
     private Topic mTopic;
     private DetailsOverviewRow mRow;
     private ArrayObjectAdapter mAdapter;
+    private PicassoBackgroundManagerTarget mBackgroundTarget;
 
     public static Fragment newInstance(int topicId) {
         Bundle args = new Bundle();
@@ -50,6 +52,11 @@ public class TopicDetailFragment extends DetailsFragment {
             Log.e(TAG, "No topic found");
         }
 
+        // prepare background image manager
+        BackgroundManager backgroundManager = BackgroundManager.getInstance(getActivity());
+        backgroundManager.attach(getActivity().getWindow());
+        mBackgroundTarget = new PicassoBackgroundManagerTarget(backgroundManager);
+
         setupUI();
     }
 
@@ -63,6 +70,8 @@ public class TopicDetailFragment extends DetailsFragment {
         for (Action action : actions) {
             mRow.addAction(action);
         }
+
+        updateBackground();
 
         // build presenter
         DetailsOverviewRowPresenter dorPresenter = new DetailsOverviewRowPresenter(new DetailsDescriptionPresenter(getActivity()));
@@ -100,6 +109,15 @@ public class TopicDetailFragment extends DetailsFragment {
                 .into(target);
     }
 
+    protected void updateBackground() {
+        if (mTopic.getBackgroundImageUrl() != null) {
+            Log.d(TAG, "downloading background");
+            Picasso.with(getActivity())
+                    .load(mTopic.getBackgroundImageUrl())
+                    .into(mBackgroundTarget);
+        }
+    }
+
     /**
      * custom Picasso Target
      */
@@ -122,6 +140,9 @@ public class TopicDetailFragment extends DetailsFragment {
             mRow.setImageDrawable(placeHolderDrawable);
             mAdapter.notifyArrayItemRangeChanged(0, 1);
         }
+
+        // TODO add equals() and hashcode()
     }
 }
+
 

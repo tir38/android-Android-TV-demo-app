@@ -9,6 +9,8 @@ import com.tir38.android.androidtvdemo.forealz.model.topics.AdapterViewTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidApiVersionTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AndroidStudioTemplateTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.AvailableDevicesTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.ContentTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.DownloadSpeedTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GameControllerTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.GoogleTvTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.HomeScreenTopic;
@@ -16,10 +18,13 @@ import com.tir38.android.androidtvdemo.forealz.model.topics.LeanbackTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.ListenersTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.ManifestPt2Topic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.ManifestTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.MaterialDesignTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.NewFragmentsTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.PresenterCaveatTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteAndroidAppTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.RemoteControlTopic;
 import com.tir38.android.androidtvdemo.forealz.model.topics.TwoAxisNavTopic;
+import com.tir38.android.androidtvdemo.forealz.model.topics.WebBrowserTopic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,6 +52,7 @@ public class ModelStore {
         mCategories.add("As a user");
         mCategories.add("General dev stuff");
         mCategories.add("Details Details Details!");
+        mCategories.add("Open ended...");
 
         // setup topics
         Topic[] category1Topics = {
@@ -70,12 +76,21 @@ public class ModelStore {
                 new NewFragmentsTopic(),
                 new ListenersTopic(),
                 new AdapterViewTopic(),
-                new PresenterTopic()
+                new PresenterTopic(),
+                new PresenterCaveatTopic()
+        };
+
+        Topic[] category4Topics = {
+                new WebBrowserTopic(),
+                new MaterialDesignTopic(),
+                new ContentTopic(),
+                new DownloadSpeedTopic()
         };
 
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category1Topics)));
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category2Topics)));
         mTopics.add(new ArrayList<Topic>(Arrays.asList(category3Topics)));
+        mTopics.add(new ArrayList<Topic>(Arrays.asList(category4Topics)));
     }
 
     /**
